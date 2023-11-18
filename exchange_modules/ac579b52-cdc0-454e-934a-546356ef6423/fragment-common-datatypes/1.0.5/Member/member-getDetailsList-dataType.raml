@@ -1,0 +1,82 @@
+#%RAML 1.0 DataType
+type: object
+properties:
+  memberList:
+    type: array
+    items:
+      type: object
+      properties:
+        firstName:
+          type: string
+          required: true
+          example: "Naveen"
+        lastName:
+          type: string
+          required: false
+          example: "raj"
+        maritalStatus:
+          type: string
+          required: false
+          example: "Un-married"
+        title: 
+          type: string
+          required: true
+          example: "Mr"
+        gender:
+          type: string
+          required: true
+          example: "Male"
+        occupation:
+          type: string
+          required: false
+          example: "Engineer"
+        registrationChannel:
+          type: string
+          required: true
+          example: "WFC_MP"
+        preferredName:
+          type: string
+          required: false
+          example: "Nav"
+        identity:
+          type: object
+          properties:
+            password:
+              type: string
+              required: true
+              example: "testing"
+            phoneCountry:
+              type: string
+              required: true
+              example: "86"
+            phoneNumber:
+              type: string
+              required: true
+              example: "18888888887"
+            email:
+              type: string
+              required: true
+              example: "emailNaveen001@email.com"         
+        address:
+          type: object
+          properties:
+            country:
+              type: string
+              required: true
+              example: "HongKong"
+            city:
+              type: string
+              required: true
+              example: "HongKong"
+            area:
+              type: string
+              required: true
+              example: "CentralAndWestern District"
+            province:
+              type: string
+              required: true
+              example: "HongKongIsland"
+            placeOfResidence:
+              type: string
+              required: true
+              example: "12/3 Kamaraj Street"

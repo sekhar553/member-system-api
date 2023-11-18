@@ -1,0 +1,27 @@
+{
+  "dependencies": [
+    {
+      "version": "1.0.0",
+      "assetId": "fragment-common-traits",
+      "groupId": "ac579b52-cdc0-454e-934a-546356ef6423",
+      "provided": false
+    },
+    {
+      "version": "1.0.5",
+      "assetId": "fragment-common-datatypes",
+      "groupId": "ac579b52-cdc0-454e-934a-546356ef6423",
+      "provided": false
+    }
+  ],
+  "version": "1.0.0",
+  "descriptorVersion": "1.0.0",
+  "classifier": "raml",
+  "main": "memberSystem-API.raml",
+  "assetId": "getmemberlist-sapi",
+  "groupId": "ac579b52-cdc0-454e-934a-546356ef6423",
+  "name": "memberSystem-API",
+  "organizationId": "ac579b52-cdc0-454e-934a-546356ef6423",
+  "apiVersion": "v1",
+  "tags": [],
+  "originalFormatVersion": "1.0"
+}

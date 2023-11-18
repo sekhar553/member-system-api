@@ -1,0 +1,194 @@
+#%RAML 1.0
+title: getMemberList-SAPI
+
+description: get the all list of members details with this getMemberList-SAPI.
+
+traits:
+  clientIdEnforcement: !include /exchange_modules/ac579b52-cdc0-454e-934a-546356ef6423/fragment-common-traits/1.0.0/clientIdInforcement-traits.raml
+  common: !include /exchange_modules/ac579b52-cdc0-454e-934a-546356ef6423/fragment-common-traits/1.0.0/common-api-traits.raml
+  
+types:
+  memberDetails: !include /exchange_modules/ac579b52-cdc0-454e-934a-546356ef6423/fragment-common-datatypes/1.0.5/Member/member-Details-dataType.raml
+  memberpostDetails: !include /exchange_modules/ac579b52-cdc0-454e-934a-546356ef6423/fragment-common-datatypes/1.0.5/Member/member-postDetails-dataType.raml
+  memberDeatailsList: !include /exchange_modules/ac579b52-cdc0-454e-934a-546356ef6423/fragment-common-datatypes/1.0.5/Member/member-getDetailsList-dataType.raml
+  getMemberId: !include /exchange_modules/ac579b52-cdc0-454e-934a-546356ef6423/fragment-common-datatypes/1.0.5/Member/getMemberID-dataType.raml
+
+  commonError: !include /exchange_modules/ac579b52-cdc0-454e-934a-546356ef6423/fragment-common-datatypes/1.0.5/common/error-response-dataType.raml
+
+/members:
+  post:
+    is:
+      - clientIdEnforcement
+      - common
+    body:
+      application/json:
+        type: memberDetails
+        example: !include /Examples/memberDetails-example.json
+    responses:
+      200:
+        body:
+          application/json:
+            type: memberpostDetails                     
+            example: !include /Examples/memberpost-200-response.json
+      400:
+          body:
+            application/json:
+              type: commonError
+              example: !include /Examples/error-400-response-example.json
+      401:
+        body:
+          application/json:
+            type: commonError
+            example: !include /Examples/error-401-response-example.json
+      404:
+        body:
+          application/json:
+            type: commonError
+            example: !include /Examples/error-404-response-example.json
+                
+      500:
+        body:
+          application/json:
+            type: commonError
+            example: !include /Examples/error-500-response-example.json
+  /sync:
+    post:
+      is:
+        - clientIdEnforcement
+        - common
+      body:
+        application/json:
+          type: memberDetails
+          example: !include /Examples/memberDetails-example.json
+      responses:
+        200:
+          body:
+            application/json:
+              type: memberpostDetails                     
+              example: !include /Examples/memberpost-200-response.json
+        400:
+            body:
+              application/json:
+                type: commonError
+                example: !include /Examples/error-400-response-example.json
+        401:
+          body:
+            application/json:
+              type: commonError
+              example: !include /Examples/error-401-response-example.json
+        404:
+          body:
+            application/json:
+              type: commonError
+              example: !include /Examples/error-404-response-example.json
+                  
+        500:
+          body:
+            application/json:
+              type: commonError
+              example: !include /Examples/error-500-response-example.json  
+  get:
+    is:
+      - clientIdEnforcement
+      - common
+    queryParameters:
+      email:
+        required: false
+        type: string
+        example: "xyz123@gmail.com"
+      mobile:
+        required: false
+        type: string
+        example: "6302345904"
+      registrationDate:
+        required: false
+        type: string
+        example: "05-06-2014"
+    responses:
+      200:
+        body:
+          application/json:
+            type: memberDeatailsList
+            example: !include /Examples/memberDetailsList-example.json        
+      400:
+        body:
+          application/json:
+            type: commonError
+            example: !include /Examples/error-400-response-example.json       
+      401:
+        body:
+          application/json:
+            type: commonError
+            example: !include /Examples/error-401-response-example.json
+      404:
+        body:
+          application/json:
+            type: commonError
+            example: !include /Examples/error-404-response-example.json       
+      500:
+        body:
+          application/json:
+            type: commonError
+            example: !include /Examples/error-500-response-example.json
+  patch:
+    is:
+      - clientIdEnforcement
+      - common
+    body:
+      application/json:
+        type: memberDetails
+        example: !include /Examples/memberDetails-example.json
+    responses:
+      200:
+        body:
+          application/json:
+            type: memberDetails
+            example: !include /Examples/getmemberDetails-example.json
+      400:
+        body:
+          application/json:
+            type: commonError
+            example: !include /Examples/error-400-response-example.json
+                
+      401:
+        body:
+          application/json:
+            type: commonError
+            example: !include /Examples/error-401-response-example.json
+      404:
+        body:
+          application/json:
+            type: commonError
+            example: !include /Examples/error-404-response-example.json
+      500:
+        body:
+          application/json:
+            type: commonError
+            example: !include /Examples/error-500-response-example.json     
+  /{memberId}:
+    get:
+      is:
+        - clientIdEnforcement
+        - common
+      responses:
+        200:
+          body:
+            application/json:
+              type: getMemberId
+              example: !include /Examples/getmemberDetails-example.json        
+        401:
+          body:
+            application/json:
+              type: commonError
+              example: !include /Examples/error-401-response-example.json
+        404:
+          body:
+            application/json:
+              type: commonError
+              example: !include /Examples/error-404-response-example.json
+        500:
+          body:
+            application/json:
+              type: commonError
+              example: !include /Examples/error-500-response-example.json
+                
